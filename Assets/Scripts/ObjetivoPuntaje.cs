@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjetivoPuntaje : Objetivo
 {
     public int puntos = 1;
+    public float cambioVelocidad;
     public GameObject prefabTiempoNegativo;
 
     protected override void OnTriggerEnter(Collider other)
@@ -13,11 +14,16 @@ public class ObjetivoPuntaje : Objetivo
         {
             var player = other.GetComponent<Player>();
             //player.Alerta();
-            player.IncrementarPuntaje(puntos);
+            player.IncrementarPuntaje(puntos, cambioVelocidad);
 
             GameObject.Instantiate(prefabTiempoNegativo);
             var obetivoTiempo = prefabTiempoNegativo.GetComponent<ObjetivoTiempo>();
             obetivoTiempo.ReposicionarNuevo();
+
+            if (player.cubosRojos >= 5)
+            {
+                obetivoTiempo.ReposicionarEspecial();
+            }
         }
 
         base.OnTriggerEnter(other);

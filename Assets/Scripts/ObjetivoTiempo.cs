@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjetivoTiempo : Objetivo
 {
-    public float tiempo;
+    public float tiempo, cambioVelocidad;
     public Material positivo;
     public Material negativo;
     public bool reposicionar = true;
@@ -28,7 +28,7 @@ public class ObjetivoTiempo : Objetivo
         {
             //Le mandamos la operacion de tiempo
             var player = other.GetComponent<Player>();
-            player.ModificarTiempo(tiempo);
+            player.ModificarTiempo(tiempo, cambioVelocidad);
         }
         if (reposicionar)
         {
@@ -39,6 +39,11 @@ public class ObjetivoTiempo : Objetivo
     public void ReposicionarNuevo()
     {
         base.Reposicionar();
+    }
+
+    public void ReposicionarEspecial()
+    {
+        base.ReposicionarEspecial();
     }
 
 }

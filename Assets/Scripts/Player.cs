@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     public Text txt_puntajeacual;
     public Text txt_tiempolimiteactual;
 
+    public Text txt_cubosRojos;
+    public int cubosRojos = 1; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +41,23 @@ public class Player : MonoBehaviour
             );
     }
 
-    public void IncrementarPuntaje(int valor)
+    public void IncrementarPuntaje(int valor, float cambioVelocidad)
     {
+
+        cubosRojos++;
+
+        velocidad += cambioVelocidad;
         puntaje += valor;
         Debug.Log("Puntaje actual: " + puntaje.ToString());
     }
 
-    public void ModificarTiempo(float valor)
+    public void ModificarTiempo(float valor, float cambioVelocidad)
     {
+        if (cambioVelocidad != 0) { 
+        cubosRojos--;
+        }
+
+        velocidad -= cambioVelocidad;
         tiempoDeJuego -= valor;
         Debug.Log("Tiempo con reducción: " + tiempoDeJuego.ToString());
     }
@@ -57,6 +69,7 @@ public class Player : MonoBehaviour
         txt_tiempotranscurrido.text = tiempoTranscurrido.ToString();
         txt_puntajeacual.text = puntaje.ToString();
         txt_tiempolimiteactual.text = (tiempoLimite-tiempoDeJuego).ToString();
+        txt_cubosRojos.text = cubosRojos.ToString();
 
 
         //Contador de tiempo

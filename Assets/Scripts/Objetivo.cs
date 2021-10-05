@@ -7,6 +7,7 @@ public class Objetivo : MonoBehaviour
 
     public float minX, maxX;
     public float minZ, maxZ;
+    public float y=1;
 
 
     // Start is called before the first frame update
@@ -37,6 +38,16 @@ public class Objetivo : MonoBehaviour
             new Vector3(
                 Random.Range(minX, maxX), 
                 transform.position.y, 
+                Random.Range(minZ, maxZ)
+                );
+    }
+
+    protected void ReposicionarEspecial()
+    {
+        this.gameObject.transform.position =
+            new Vector3(
+                Random.Range(minX, maxX),
+                transform.position.y,
                 Random.Range(minZ, maxZ)
                 );
     }

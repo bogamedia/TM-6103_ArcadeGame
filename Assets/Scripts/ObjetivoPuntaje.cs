@@ -22,7 +22,7 @@ public class ObjetivoPuntaje : Objetivo
 
             if (player.cubosRojos >= 5)
             {
-                obetivoTiempo.ReposicionarEspecial();
+                obetivoTiempo.ReposicionarEspecialEsphera();
             }
         }
 

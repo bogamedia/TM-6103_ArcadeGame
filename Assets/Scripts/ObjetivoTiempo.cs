@@ -41,7 +41,7 @@ public class ObjetivoTiempo : Objetivo
         base.Reposicionar();
     }
 
-    public void ReposicionarEspecial()
+    public void ReposicionarEspecialEsphera()
     {
         base.ReposicionarEspecial();
     }

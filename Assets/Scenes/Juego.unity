@@ -587,6 +587,9 @@ MonoBehaviour:
   minZ: -7
   maxZ: 7
   y: 1
+  puntos: 5
+  cambioVelocidad: 0
+  prefabTiempoNegativo: {fileID: 1417745988}
 --- !u!65 &723323143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1485,6 +1488,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316433630}
   m_CullTransparentMesh: 1
+--- !u!1 &1417745988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5719892175398974364, guid: 8163391e78665b7448c773044ff9ce9e, type: 3}
+  m_PrefabInstance: {fileID: 5719892174813937133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1459512805
 GameObject:
   m_ObjectHideFlags: 0

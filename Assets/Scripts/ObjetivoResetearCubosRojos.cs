@@ -5,16 +5,21 @@ using UnityEngine;
 public class ObjetivoResetearCubosRojos : Objetivo
 {
 
+    public int puntos = 1;
+    public float cambioVelocidad;
+    public GameObject prefabTiempoNegativo;
+
     protected override void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             var player = other.GetComponent<Player>();
 
-            if (player.cubosRojos == 5)
-            {
-                player.cubosRojos--;
-            }
+            player.IncrementarPuntaje(puntos, cambioVelocidad);
+
+            GameObject.Instantiate(prefabTiempoNegativo);
+            var obetivoTiempo = prefabTiempoNegativo.GetComponent<ObjetivoTiempo>();
+            obetivoTiempo.ReposicionarNuevo();
 
             //player.Alerta();
         }
